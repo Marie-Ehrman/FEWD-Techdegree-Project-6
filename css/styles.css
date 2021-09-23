@@ -95,6 +95,8 @@ button {
 .show {
   color: #000;
   background-color: #76CE82;
+  transition: 1s;
+  transform: rotate(360deg);
 }
 
 /* Keyboard */
@@ -109,6 +111,7 @@ button {
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
+  transform: scale(1.1);
 }
 
 .btn__reset {
@@ -132,6 +135,7 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  z-index: 9999;
 }
 
 .title {
