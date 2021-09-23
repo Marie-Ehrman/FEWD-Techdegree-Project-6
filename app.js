@@ -48,9 +48,36 @@ function addPhraseToDisplay(arr){
 const phraseArray = getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray)
 
-function checkLetter(letter){
+function checkLetter(button){
     const letters = document.querySelectorAll('.letter');
-    console.log(letters);
+    let matchedLetter;
+
+    for(const letter of letters){
+
+        if(button.textContent === letter.textContent){
+            letter.classList.add('show');
+            matchedLetter = letter.textContent;
+        }
+    }
+
+    return matchedLetter;
 }
 
-checkLetter();
+//HANDLE KEYBOARD INTERACTIONS
+const keys = document.querySelectorAll('.keyrow button')
+for(const key of keys) {
+    key.addEventListener('click', () => {
+        key.classList.add('chosen');
+        key.disabled = true;
+        const letterFound = checkLetter(key);
+
+        if(!letterFound){
+            missed++;
+            const heart = document.querySelector('.tries img[src="images/liveHeart.png"]');
+            heart.setAttribute('src', 'images/lostHeart.png')
+            
+            console.log(heart)
+        }
+     })
+}
+
